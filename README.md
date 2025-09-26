@@ -6,6 +6,11 @@
 
 # Отчет по программе Интерфес
 
+Содержание папки src:
+1. [Movable.kt](https://github.com/Darkness1853/Android-Project/blob/bc7a24f627e97741491a0ab15651b07f4f20cc0f/src/Movable.kt)
+2. [Human.kt](https://github.com/Darkness1853/Android-Project/blob/bc7a24f627e97741491a0ab15651b07f4f20cc0f/src/Human.kt)
+3. [Driver.kt](https://github.com/Darkness1853/Android-Project/blob/bc7a24f627e97741491a0ab15651b07f4f20cc0f/src/Driver.kt)
+4. [Main.kt](https://github.com/Darkness1853/Android-Project/blob/bc7a24f627e97741491a0ab15651b07f4f20cc0f/src/main.kt)
 ## Общее описание программы
 
 Программа моделирует движение людей и водителей в двумерном пространстве с использованием объектно-ориентированного программирования, наследования и многопоточности.
@@ -178,3 +183,4 @@ fun main() {
     println("${driver.name}: (${driver.x}, ${driver.y})")
 }
 ```
+
