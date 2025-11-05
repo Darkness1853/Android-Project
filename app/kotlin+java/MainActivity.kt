@@ -1,0 +1,194 @@
+package com.example.calculator
+
+import android.graphics.Color
+import android.os.Handler
+import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import kotlin.random.Random
+
+class MainActivity : AppCompatActivity() {
+    private var display: TextView? = null
+    private var currentNumber =""
+    private var firstNumber = 0.0
+    private var operator = ""
+    private var resetDisplay = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        display = findViewById(R.id.Display)
+        setupNumberButtons()
+        setupOperatorButtons()
+        setupOtherButtons()
+
+    }
+
+    private fun RandomColor(button: Button) {
+        val red = Random.nextInt(256)
+        val green = Random.nextInt(256)
+        val blue = Random.nextInt(256)
+        val color = Color.argb(255,red,green, blue)
+        button.setBackgroundColor(color)
+        Handler(Looper.getMainLooper()).postDelayed({ button.setBackgroundColor(R.drawable.round_button)}, 250)
+    }
+
+    private fun setupOperatorButtons(){
+        findViewById<Button>(R.id.btnAdd).setOnClickListener {
+            setOperator("+")
+        }
+
+        findViewById<Button>(R.id.btnSubtract).setOnClickListener {
+            setOperator("-")
+        }
+
+        findViewById<Button>(R.id.btnMultiply).setOnClickListener {
+            setOperator("*")
+        }
+
+        findViewById<Button>(R.id.btnDivide).setOnClickListener {
+            setOperator("/")
+        }
+
+    }
+
+    private fun setupOtherButtons(){
+        findViewById<Button>(R.id.btnEquals).setOnClickListener {
+            calculate()
+        }
+
+        findViewById<Button>(R.id.btnClear).setOnClickListener {
+            clearAll()
+        }
+
+    }
+    private fun setupNumberButtons(){
+        val button0 = findViewById<Button>(R.id.btn0)
+        button0.setOnClickListener {
+            addNumber("0")
+            RandomColor(button0)
+        }
+
+        val button1 = findViewById<Button>(R.id.btn1)
+        button1.setOnClickListener {
+            addNumber("1")
+            RandomColor(button1)
+        }
+
+        val button2 = findViewById<Button>(R.id.btn2)
+        button2.setOnClickListener {
+            addNumber("2")
+            RandomColor(button2)
+        }
+
+        val button3 = findViewById<Button>(R.id.btn3)
+        button3.setOnClickListener {
+            addNumber("3")
+            RandomColor(button3)
+        }
+
+        val button4 = findViewById<Button>(R.id.btn4)
+        button4.setOnClickListener {
+            addNumber("4")
+            RandomColor(button4)
+        }
+
+        val button5 = findViewById<Button>(R.id.btn5)
+        button5.setOnClickListener {
+            addNumber("5")
+            RandomColor(button5)
+        }
+
+        val button6 = findViewById<Button>(R.id.btn6)
+        button6.setOnClickListener {
+            addNumber("6")
+            RandomColor(button6)
+        }
+
+        val button7 = findViewById<Button>(R.id.btn7)
+        button7.setOnClickListener {
+            addNumber("7")
+            RandomColor(button7)
+        }
+
+        val button8 = findViewById<Button>(R.id.btn8)
+        button8.setOnClickListener {
+            addNumber("8")
+            RandomColor(button8)
+        }
+
+        val button9 = findViewById<Button>(R.id.btn9)
+        button9.setOnClickListener {
+            addNumber("9")
+            RandomColor(button9)
+        }
+
+    }
+
+    private fun addNumber(number: String){
+        if (resetDisplay){
+            currentNumber = ""
+            resetDisplay = false
+        }
+
+        if (currentNumber == "0") {
+            currentNumber = number
+        } else {
+            currentNumber += number
+        }
+
+        display?.text = currentNumber
+    }
+
+
+    private fun setOperator(newOperator: String){
+        if (currentNumber != ""){
+            firstNumber = currentNumber.toDouble()
+            operator = newOperator
+            resetDisplay= true
+        }
+
+    }
+
+    private fun calculate() {
+        if (currentNumber != "" && operator != "") {
+            val secondNumber = currentNumber.toDouble()
+            var result = 0.0
+
+            if (operator == "+") {
+                result = firstNumber + secondNumber
+            } else if (operator == "-") {
+                result = firstNumber - secondNumber
+            } else if (operator == "*") {
+                result = firstNumber * secondNumber
+            } else {
+                if (secondNumber != 0.0) {
+                    result = firstNumber / secondNumber
+                } else {
+                    display?.text = "Error"
+                    return
+                }
+            }
+            currentNumber = if (result % 1 == 0.0) {
+                result.toInt().toString()
+            } else {
+                result.toString()
+            }
+            display?.text = currentNumber
+            operator = ""
+            resetDisplay = true
+        }
+    }
+
+    private fun clearAll() {
+        currentNumber = ""
+        firstNumber = 0.0
+        operator = ""
+        resetDisplay = false
+        display?.text = "0"
+
+    }
+}
