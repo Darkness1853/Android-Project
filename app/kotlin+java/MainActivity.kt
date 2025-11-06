@@ -1,8 +1,6 @@
 package com.example.calculator
 
 import android.graphics.Color
-import android.os.Handler
-import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -26,42 +24,75 @@ class MainActivity : AppCompatActivity() {
         setupOtherButtons()
 
     }
-
     private fun RandomColor(button: Button) {
         val red = Random.nextInt(256)
         val green = Random.nextInt(256)
         val blue = Random.nextInt(256)
-        val color = Color.argb(255,red,green, blue)
+        val color = Color.rgb(red,green, blue)
         button.setBackgroundColor(color)
-        Handler(Looper.getMainLooper()).postDelayed({ button.setBackgroundColor(R.drawable.round_button)}, 250)
+        button.postDelayed({
+            button.setBackgroundColor(Color.parseColor("#5F6ECA"))
+        },250)
+    }
+    private fun RandomColorForOperator(button: Button) {
+        val red = Random.nextInt(256)
+        val green = Random.nextInt(256)
+        val blue = Random.nextInt(256)
+        val color = Color.rgb(red,green, blue)
+        button.setBackgroundColor(color)
+        button.postDelayed({
+            button.setBackgroundColor(Color.parseColor("#664FA3FF"))
+        },250)
+    }
+    private fun RandomColorForClear(button: Button) {
+        val red = Random.nextInt(256)
+        val green = Random.nextInt(256)
+        val blue = Random.nextInt(256)
+        val color = Color.rgb(red,green, blue)
+        button.setBackgroundColor(color)
+        button.postDelayed({
+            button.setBackgroundColor(Color.parseColor("#A62626"))
+        },250)
     }
 
     private fun setupOperatorButtons(){
-        findViewById<Button>(R.id.btnAdd).setOnClickListener {
+        val buttonAdd = findViewById<Button>(R.id.btnAdd)
+            buttonAdd.setOnClickListener {
             setOperator("+")
+            RandomColorForOperator(buttonAdd)
         }
 
-        findViewById<Button>(R.id.btnSubtract).setOnClickListener {
+        val buttonSubstract = findViewById<Button>(R.id.btnSubtract)
+            buttonSubstract.setOnClickListener {
             setOperator("-")
+            RandomColorForOperator(buttonSubstract)
         }
 
-        findViewById<Button>(R.id.btnMultiply).setOnClickListener {
+        val buttonMultiply = findViewById<Button>(R.id.btnMultiply)
+            buttonMultiply.setOnClickListener {
             setOperator("*")
+            RandomColorForOperator(buttonMultiply)
         }
 
-        findViewById<Button>(R.id.btnDivide).setOnClickListener {
+        val buttonDivide = findViewById<Button>(R.id.btnDivide)
+            buttonDivide.setOnClickListener {
             setOperator("/")
+            RandomColorForOperator(buttonDivide)
         }
 
     }
 
     private fun setupOtherButtons(){
-        findViewById<Button>(R.id.btnEquals).setOnClickListener {
+        val buttonEquals = findViewById<Button>(R.id.btnEquals)
+            buttonEquals.setOnClickListener {
             calculate()
+            RandomColorForOperator(buttonEquals)
         }
 
-        findViewById<Button>(R.id.btnClear).setOnClickListener {
+        val buttonClear = findViewById<Button>(R.id.btnClear)
+            buttonClear.setOnClickListener {
             clearAll()
+            RandomColorForClear(buttonClear)
         }
 
     }
