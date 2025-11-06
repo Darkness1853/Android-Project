@@ -29,10 +29,11 @@
 1. Как реализовать при нажатии рандомный цвет кнопки?
 
    Используя:
-   - Handler и Looper - для задержки перед выполнением выполнения
+   - postDelayed - для задержки перед выполнением выполнения
      ```kotlin
-     Handler(Looper.getMainLooper()).postDelayed({ 
-     button.setBackgroundResource(R.drawable.round_button)}, 250)
+     button.postDelayed({
+            button.setBackgroundColor(Color.parseColor("#5F6ECA"))
+        },250)
      ```
    - Random - для генерации случайных цветов
      ```kotlin
@@ -40,14 +41,13 @@
      val green = Random.nextInt(256) 
      val blue = Random.nextInt(256)
      ```
-   - Color.argb - для создания цвета из компонентов
+   - Color.rgb - для создания цвета из компонентов
      ```kotlin
-     val color = Color.argb(255, red, green, blue)
+     val color = Color.rgb(red, green, blue)
      ```
-   - setBackgroundColor и setBackgroundResource - для установки цвета и возврата на исходный цвет
+   - setBackgroundColor - для установки цвета и возврата на исходный цвет
      ```kotlin
      button.setBackgroundColor(color) 
-     button.setBackgroundResource(R.drawable.round_button)
      ```
 
 Содержание:
@@ -74,6 +74,7 @@
    Изучения темы интерфейс
    
    Программа демонстрирует объектно-ориентированное программирование и многопоточность в Kotlin, моделируя параллельное движение различных объектов (людей и водителей) в двумерной системе координат.
+
 
 
 
