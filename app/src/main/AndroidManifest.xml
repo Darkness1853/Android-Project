@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+        tools:targetApi="36">
+        <activity
+            android:name="com.example.MediaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MediaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Media_playerActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.CalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.example.myapplication.Calculator"
+            android:exported="false" />
+        <activity
+            android:name="com.example.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
