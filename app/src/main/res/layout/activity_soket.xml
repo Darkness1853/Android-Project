@@ -5,9 +5,21 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.MediaActivity"
+    tools:context="com.example.SoketActivity"
     android:background="#191970"
     android:padding="25dp">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:text="В разработке!"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_marginBottom="20dp"
+        android:textColor="#EBE0E0" />
+
 
     <Button
         android:id="@+id/GoMain"
@@ -20,5 +32,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -65,6 +65,6 @@
         android:layout_height="wrap_content"
         android:text="Выход"
         android:background="@drawable/round_button_exit"
-        android:layout_marginTop="324dp"/>
+        android:layout_marginTop="280dp"/>
 
 </LinearLayout>
