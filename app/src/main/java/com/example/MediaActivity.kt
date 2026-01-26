@@ -21,7 +21,8 @@ data class AudioTrack(
     val title: String,
     val artist: String,
     val duration: Long,
-    val uri: Uri
+    val uri: Uri,
+    val path: String
 )
 
 class MediaActivity : AppCompatActivity() {
@@ -43,6 +44,7 @@ class MediaActivity : AppCompatActivity() {
     private lateinit var seekBarProgress: SeekBar
     private lateinit var seekBarVolume: SeekBar
     private lateinit var textViewCurrentTrack: TextView
+    private lateinit var textway: TextView
     private lateinit var textViewCurrentTime: TextView
     private lateinit var textViewTotalTime: TextView
 
@@ -77,6 +79,7 @@ class MediaActivity : AppCompatActivity() {
         textViewCurrentTrack = findViewById(R.id.textViewCurrentTrack)
         textViewCurrentTime = findViewById(R.id.textViewCurrentTime)
         textViewTotalTime = findViewById(R.id.textViewTotalTime)
+        textway = findViewById(R.id.Way)
 
         spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -155,17 +158,14 @@ class MediaActivity : AppCompatActivity() {
     }
 
     private fun loadAudioTracks() {
-        val collection = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
-        } else {
-            MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
-        }
+        val collection = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
 
         val projection = arrayOf(
             MediaStore.Audio.Media._ID,
             MediaStore.Audio.Media.TITLE,
             MediaStore.Audio.Media.ARTIST,
-            MediaStore.Audio.Media.DURATION
+            MediaStore.Audio.Media.DURATION,
+            MediaStore.Audio.Media.DATA,
         )
 
         val selection = "${MediaStore.Audio.Media.IS_MUSIC} != 0"
@@ -181,6 +181,7 @@ class MediaActivity : AppCompatActivity() {
             val titleColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE)
             val artistColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST)
             val durationColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION)
+            val pathColumn = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)
 
             audioTracks.clear()
             spinnerAdapter.clear()
@@ -191,8 +192,9 @@ class MediaActivity : AppCompatActivity() {
                 val artist = cursor.getString(artistColumn) ?: "Неизвестный исполнитель"
                 val duration = cursor.getLong(durationColumn)
                 val uri = ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, id)
+                val path = cursor.getString(pathColumn)
+                val track = AudioTrack(id, title, artist, duration, uri,path)
 
-                val track = AudioTrack(id, title, artist, duration, uri)
                 audioTracks.add(track)
                 spinnerAdapter.add("$title - $artist")
             }
@@ -211,6 +213,8 @@ class MediaActivity : AppCompatActivity() {
 
         currentTrackIndex = position
         val track = audioTracks[position]
+
+        textway.text= track.path
 
         mediaPlayer.reset()
         try {
@@ -264,6 +268,7 @@ class MediaActivity : AppCompatActivity() {
         val newIndex = if (currentTrackIndex < audioTracks.size - 1) currentTrackIndex + 1 else 0
         spinnerTracks.setSelection(newIndex)
         playTrack(newIndex)
+
     }
 
     private fun updateTrackInfo() {
@@ -271,6 +276,7 @@ class MediaActivity : AppCompatActivity() {
             val track = audioTracks[currentTrackIndex]
             textViewCurrentTrack.text = "${track.title} - ${track.artist}"
             textViewTotalTime.text = formatTime(track.duration)
+            textway.text= track.path
             seekBarProgress.max = track.duration.toInt()
             seekBarProgress.progress = 0
         }
