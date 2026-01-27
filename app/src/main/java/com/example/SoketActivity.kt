@@ -8,6 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.calculator.R
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
+import android.view.View
+import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
+import org.zeromq.SocketType
+import org.zeromq.ZContext
+import org.zeromq.ZMQ
 
 class SoketActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
