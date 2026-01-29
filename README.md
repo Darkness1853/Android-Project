@@ -110,14 +110,15 @@
 ### 4.1 Рефакторинг (Разделение по Activities)
 [Содержание](#содержание)
 
-   ***Задание**
+   ***Задание***
    
    Из MainActivity необходимо создать некий hub, в котором будут отображаться кнопки перехода на другие Activity
    Реализовать метод перехода из MainActivity в другие при помощи кнопок.
    Это можно увидеть в:
    - [Калькулятор](https://github.com/Darkness1853/Android-Project/tree/Calculator)
    - [Медиаплеер](https://github.com/Darkness1853/Android-Project/tree/Mediaplayer)
-   - 
+   - [Местоположение](https://github.com/Darkness1853/Android-Project/tree/Location)
+   - [Сокеты](https://github.com/Darkness1853/Android-Project/tree/Socket)
 
 ## 5. Медиаплеер
 [Содержание](#содержание)
@@ -144,6 +145,7 @@
 
 
    
+
 
 
 
