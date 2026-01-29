@@ -50,6 +50,15 @@
       button.setBackgroundColor(color) 
       ```
 
+***Задание по Location***
+Получить доступ к данным о местоположении Android-телефона и вывести на экран значения.
+
+- Создать Activity Location, в основном окне MainActivity добавить кнопку перехода в новую Activity
+- Получить доступ к классу Location при помощи permissions: ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION;
+- Вывести в Activity данные о текущем (или последнем известном) местоположении смартфона: Latitude,Longitude,Altitude,Current Time
+- Получить данные можно при помощи метода getLastLocation()
+- При каждом обновлении местоположения записывать данные в файл (в формате Json)
+
 Содержание:
 1. [Основы-ООП](https://github.com/Darkness1853/Android-Project/tree/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-%D0%9E%D0%9E%D0%9F.-%E2%80%9C%D0%A5%D0%BE%D0%B4%D1%8F%D1%87%D0%B8%D0%B9%E2%80%9D)
 
