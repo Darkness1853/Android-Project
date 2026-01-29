@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
             val calc_Intent = Intent(this, CalculatorActivity::class.java)
             startActivity(calc_Intent)
         });
-
+        /* 
         findViewById<Button>(R.id.GoMedia).setOnClickListener({
             val Media_Intent = Intent(this, MediaActivity::class.java)
             startActivity(Media_Intent)
@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
             val Soket_Intent = Intent(this, SoketActivity::class.java)
             startActivity(Soket_Intent)
         });
+        */
         findViewById<Button>(R.id.Exit).setOnClickListener ({
             finishAffinity()
         });
