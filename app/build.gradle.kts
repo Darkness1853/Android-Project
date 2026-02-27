@@ -48,7 +48,7 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation("com.google.android.gms:play-services-location:21.2.0") // -->> Location
-    implementation ("org.zeromq:jeromq:0.5.0")
+    implementation ("org.zeromq:jeromq:0.5.4")
 
     testImplementation(libs.junit)
     testImplementation("junit:junit:4.13.2")
