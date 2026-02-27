@@ -1,0 +1,3 @@
+[submodule "app/Android-Backend-Server"]
+	path = app/Android-Backend-Server
+	url = https://github.com/Darkness1853/Android-Backend-Server.git
