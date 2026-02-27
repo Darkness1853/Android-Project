@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
+import com.example.calculator.Client_SendActivity
 import com.example.calculator.R
 
 class MainActivity : AppCompatActivity() {
@@ -35,9 +36,16 @@ class MainActivity : AppCompatActivity() {
             val Soket_Intent = Intent(this, SoketActivity::class.java)
             startActivity(Soket_Intent)
         });
+
+        findViewById<Button>(R.id.GoClient_SendActivity).setOnClickListener ({
+            val Client_Intent = Intent(this, Client_SendActivity::class.java)
+            startActivity(Client_Intent)
+        });
+
         findViewById<Button>(R.id.Exit).setOnClickListener ({
             finishAffinity()
         });
+
 
     }
 }
