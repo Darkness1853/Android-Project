@@ -51,13 +51,22 @@
         android:layout_margin="4dp"
         android:text="Мобильная связь" />
 
+
     <Button
         android:id="@+id/GoSoket"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
         android:layout_margin="4dp"
+        android:background="@drawable/round_button"
         android:text="Сокеты" />
+
+    <Button
+        android:id="@+id/GoClient_SendActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        android:background="@drawable/round_button"
+        android:text="Клиент на C++" />
 
     <Button
         android:id="@+id/Exit"
