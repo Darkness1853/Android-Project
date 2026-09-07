@@ -1,6 +1,6 @@
 <h1 align="center">𝐻𝒾 𝓉𝒽𝑒𝓇𝑒, 𝐼'𝓂 <a href="https://t.me/Cocosik1558" target="_blank">Нгуен Зуй-Ань Куеевич</a> 
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
-<h3 align="center">A second-year student of the Faculty of Computer Science at SibSUTIS.</h3>
+<h3 align="center">A third-year student at the Faculty of Computer Science at SibSUTIS.</h3>
 <h3 align="center">My group IKS-433</h3>
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&width=435&lines=We+are+making+the+future+better." alt="Typing SVG" />
 
@@ -14,16 +14,17 @@
 
 ## Содержание 
 
-1. [Основы-ООП](#1-основы-ооп)
-2. [Наследование](#2-наследование)  
-3. [Интерфейс](#3-интерфейс)
-4. [Калькулятор](#4-калькулятор)
-   - 4.1 [Рефакторинг](#41-рефакторинг-разделение-по-activities)
-5. [Медиаплеер](#5-медиаплеер)
-6. [Местоположение](#6-местоположение)
-7. [Клиент-серверное приложение](#7-клиент-серверное-приложение)
-8. [Сокеты](#8-сокеты)
-9. [Backend-сервер на C++](#9-backend-сервер-на-c)
+- [Содержание](#содержание)
+- [1. Основы-ООП](#1-основы-ооп)
+- [2. Наследование](#2-наследование)
+- [3. Интерфейс](#3-интерфейс)
+- [4. Калькулятор](#4-калькулятор)
+  - [4.1 Рефакторинг (Разделение по Activities)](#41-рефакторинг-разделение-по-activities)
+- [5. Медиаплеер](#5-медиаплеер)
+- [6. Местоположение](#6-местоположение)
+- [7. Клиент-серверное приложение](#7-клиент-серверное-приложение)
+- [8. Сокеты](#8-сокеты)
+- [9. Backend-сервер на C++](#9-backend-сервер-на-c)
    
 ---
 
